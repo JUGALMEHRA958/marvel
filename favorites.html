@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <style>
-        #gotohome{
+        #gotohome {
             margin: 50px;
         }
     </style>
@@ -19,61 +20,65 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Favorites</title>
     <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <center><h2>Your Favorite Marvel Heroes</h2></center>
-<div id="gotohome">    <a href="index.html">Go back to Home</a>
-</div>
+</head>
+
+<body>
+    <center>
+        <h2>Your Favorite Marvel Heroes</h2>
+    </center>
+    <div id="gotohome"> <a href="index.html">Go back to Home</a>
+    </div>
     <div class="container">
-      <div class="row" id="favoritesContainer"></div>
+        <div class="row" id="favoritesContainer"></div>
     </div>
 
     <script>
-      const storedFavorites = localStorage.getItem('favorites');
-      const favorites = JSON.parse(storedFavorites);
-      console.log("favorites:", favorites);
+        const storedFavorites = localStorage.getItem('favorites');
+        const favorites = JSON.parse(storedFavorites);
+        console.log("favorites:", favorites);
 
-      const favoritesContainer = document.getElementById('favoritesContainer');
+        const favoritesContainer = document.getElementById('favoritesContainer');
 
-      if (favorites && favorites.length > 0) {
-        favorites.forEach(entry => {
-          if (entry.name) { // Check if the entry has a valid name
-            const card = document.createElement('div');
-            card.classList.add('card', 'mb-3', 'col-md-6');
-            if(entry.thumbnail){
-              const image = document.createElement('img');
-              image.src = entry.thumbnail.path + '.' + entry.thumbnail.extension;
-              image.classList.add('card-img-top');
-              card.appendChild(image);
-            }
+        if (favorites && favorites.length > 0) {
+            favorites.forEach(entry => {
+                if (entry.name) { // Check if the entry has a valid name
+                    const card = document.createElement('div');
+                    card.classList.add('card', 'mb-3', 'col-md-6');
+                    if (entry.thumbnail) {
+                        const image = document.createElement('img');
+                        image.src = entry.thumbnail.path + '.' + entry.thumbnail.extension;
+                        image.classList.add('card-img-top');
+                        card.appendChild(image);
+                    }
 
-            const cardBody = document.createElement('div');
-            cardBody.classList.add('card-body');
-            card.appendChild(cardBody);
+                    const cardBody = document.createElement('div');
+                    cardBody.classList.add('card-body');
+                    card.appendChild(cardBody);
 
-            const title = document.createElement('h5');
-            title.classList.add('card-title');
-            title.textContent = entry.name;
-            cardBody.appendChild(title);
+                    const title = document.createElement('h5');
+                    title.classList.add('card-title');
+                    title.textContent = entry.name;
+                    cardBody.appendChild(title);
 
-            const buttonProfile = document.createElement('button');
-            buttonProfile.classList.add("btn" , 'btn-primary','mb-5');
-            buttonProfile.textContent = "View details";
-            buttonProfile.href = `details.html?id=${entry.id}`; // Pass the hero ID as a query parameter
+                    const buttonProfile = document.createElement('button');
+                    buttonProfile.classList.add("btn", 'btn-primary', 'mb-5');
+                    buttonProfile.textContent = "View details";
+                    buttonProfile.href = `details.html?id=${entry.id}`; // Pass the hero ID as a query parameter
 
-            
-            // cardBody.appendChild(buttonProfile);
 
-            favoritesContainer.appendChild(card);
+                    // cardBody.appendChild(buttonProfile);
 
-            console.log(card);
-          }
-        });
-      } else {
-        const message = document.createElement('p');
-        message.textContent = "You haven't added any favorites yet.";
-        favoritesContainer.appendChild(message);
-      }
+                    favoritesContainer.appendChild(card);
+
+                    console.log(card);
+                }
+            });
+        } else {
+            const message = document.createElement('p');
+            message.textContent = "You haven't added any favorites yet.";
+            favoritesContainer.appendChild(message);
+        }
     </script>
-  </body>
+</body>
+
 </html>

@@ -1,0 +1,39 @@
+.card-img-top{
+    height: 80px;
+    width: 50px;
+    border-radius: 360px;
+    justify-content: center;
+}
+
+
+.card{
+    border: 2px solid #000;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+.card-text{
+    width: 510px;
+    height: 550px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px; /* Negative margin to offset the column margins */
+  }
+  
+  .col-md-6 {
+    padding: 10px; /* Padding to create the column margins */
+  }
+
+  .btn{
+    margin: 5px;
+  }
+
+  #favoriteslink{
+    margin: 50px;
+  }

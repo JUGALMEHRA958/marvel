@@ -58,6 +58,15 @@ fetch('https://gateway.marvel.com/v1/public/characters?ts=1&apikey=8087dfd6639cc
         dataContainer.appendChild(card);
 
 
+        //to go on profile
+        buttonProfile.addEventListener('click', function () {
+          // Store the selected character in localStorage
+          localStorage.setItem('selectedCharacter', JSON.stringify(entry));
+          
+          // Redirect to details.html
+          window.location.href = `details.html?id=${entry.id}`;
+        });
+
         //add to favourites
         buttonFavourite.addEventListener('click', function () {
           const entryId = entry.id; // Use a unique identifier for the entry (e.g., entry.id)
